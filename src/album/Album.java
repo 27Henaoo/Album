@@ -92,6 +92,6 @@ public class Album {
 
         } while (opMP != 10);
         
-        //ejemplo para los gays
+        //ejemplo para los ....
     }
 }
