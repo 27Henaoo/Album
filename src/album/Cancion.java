@@ -11,8 +11,9 @@ public class Cancion extends Artista{
         super();
     }
 
-    public Cancion(String CodigoArtista, String Nombre, String Año, int Clasificacion) {
-        super.setCodigo(Codigo);
+    public Cancion(String CodigoArtista, String Nombre, String Año, int Clasificacion){
+        
+        super.setCodigo(CodigoArtista);
         this.Nombre = Nombre;
         this.Año = Año;
         this.Clasificacion = Clasificacion;
@@ -41,7 +42,7 @@ public class Cancion extends Artista{
     
     @Override
     public String toString() {
-        return "Cancion{" + "Codigo Artista: " + getCodigo() + "Nombre=" + Nombre + ", A\u00f1o=" + Año + ", Clasificacion=" + Clasificacion + '}';
+        return "Cancion{" + "Codigo Artista: " + "" + getCodigo() + " Nombre=" + Nombre + ", A\u00f1o=" + Año + ", Clasificacion=" + Clasificacion + '}';
     }
 
     public String getNombre() {
@@ -67,6 +68,16 @@ public class Cancion extends Artista{
     public void setClasificacion(int Clasificacion) {
         this.Clasificacion = Clasificacion;
     }
+
+    public String getCodigo() {
+        return Codigo;
+    }
+
+    public void setCodigo(String Codigo) {
+        this.Codigo = Codigo;
+    }
+
+    
     
     
 }

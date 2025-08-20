@@ -29,7 +29,7 @@ public class Artista
         System.out.println("Ingrese el Nombre del Artista: ");
         Nombre = sc.next();
         
-        System.out.println("Ingrese el Nacionalidad del Artista: ");
+        System.out.println("Ingrese la Nacionalidad del Artista: ");
         Nacionalidad = sc.next();
         
         System.out.println("Ingrese Años de Carrera del Artista: ");
