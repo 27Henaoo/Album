@@ -5,13 +5,13 @@ public class Cancion extends Artista{
     
     private String Nombre;
     private String Año;
-    private int Clasificacion;
+    private double Clasificacion;
 
     public Cancion() {
         super();
     }
 
-    public Cancion(String CodigoArtista, String Nombre, String Año, int Clasificacion){
+    public Cancion(String CodigoArtista, String Nombre, String Año, double Clasificacion){
         
         super.setCodigo(CodigoArtista);
         this.Nombre = Nombre;
@@ -33,8 +33,15 @@ public class Cancion extends Artista{
         System.out.println("Ingrese el Año de la Cancion: ");
         Año = sc.next();
         
-        System.out.println("Ingrese la Clasificacion de la Cancion: ");
-        Clasificacion = sc.nextInt();
+    do {
+    System.out.println("Ingrese la Clasificacion de la Cancion (1 a 5): ");
+    Clasificacion = sc.nextDouble();
+
+    if (Clasificacion < 1 || Clasificacion > 5) {
+        System.out.println(" La clasificacion debe ser de 1 a 5. Intente nuevamente.");
+    }
+} while (Clasificacion < 1 || Clasificacion > 5);
+        
         
        return new Cancion(CodigoArtista, Nombre, Año, Clasificacion);
     }
@@ -42,7 +49,7 @@ public class Cancion extends Artista{
     
     @Override
     public String toString() {
-        return "Cancion{" + "Codigo Artista: " + "" + getCodigo() + " Nombre=" + Nombre + ", A\u00f1o=" + Año + ", Clasificacion=" + Clasificacion + '}';
+        return "Cancion {" + " Codigo Artista: " + "" + getCodigo() + " Nombre = " + Nombre + ", A\u00f1o = " + Año + ", Clasificacion = " + Clasificacion + '}';
     }
 
     public String getNombre() {
@@ -61,11 +68,11 @@ public class Cancion extends Artista{
         this.Año = Año;
     }
 
-    public int getClasificacion() {
+    public double getClasificacion() {
         return Clasificacion;
     }
 
-    public void setClasificacion(int Clasificacion) {
+    public void setClasificacion(double Clasificacion) {
         this.Clasificacion = Clasificacion;
     }
 
