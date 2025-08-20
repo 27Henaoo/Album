@@ -4,15 +4,15 @@ import java.util.Scanner;
 
 public class Artista 
 {
-    protected String Codigo;
-    private String Nombre;
-    private String Nacionalidad;
-    private String añosCarrera;
+    protected int Codigo; //Try
+    private String Nombre;//Try
+    private String Nacionalidad;//Try
+    private int añosCarrera;//Try
 
     public Artista() {
     }
 
-    public Artista(String Codigo, String Nombre, String Nacionalidad, String añosCarrera) {
+    public Artista(int Codigo, String Nombre, String Nacionalidad, int añosCarrera) {
         this.Codigo = Codigo;
         this.Nombre = Nombre;
         this.Nacionalidad = Nacionalidad;
@@ -23,17 +23,14 @@ public class Artista
     {
         Scanner sc = new Scanner(System.in);
         
-        System.out.println("Ingrese el Codigo del Artista: ");
-        Codigo = sc.next();
         
-        System.out.println("Ingrese el Nombre del Artista: ");
-        Nombre = sc.next();
+        Codigo = Validaciones.LeerInt("Ingrese el Codigo del Artista:" );
         
-        System.out.println("Ingrese la Nacionalidad del Artista: ");
-        Nacionalidad = sc.next();
+        Nombre = Validaciones.LeerString("Ingrese el Nombre del Artista: ");
         
-        System.out.println("Ingrese Años de Carrera del Artista: ");
-        añosCarrera = sc.next();
+        Nacionalidad = Validaciones.LeerString("Ingrese la Nacionalidad del Artista: ");
+        
+        añosCarrera = Validaciones.LeerInt("Ingrese Años de Carrera del Artista: ");
         
         return new Artista(Codigo, Nombre, Nacionalidad, añosCarrera);
     }
@@ -43,11 +40,11 @@ public class Artista
         return "Artista{" + "Codigo=" + Codigo + ", Nombre=" + Nombre + ", Nacionalidad=" + Nacionalidad + ", a\u00f1osCarrera=" + añosCarrera + '}';
     }
 
-    public String getCodigo() {
+    public int getCodigo() {
         return Codigo;
     }
 
-    public void setCodigo(String Codigo) {
+    public void setCodigo(int Codigo) {
         this.Codigo = Codigo;
     }
 
@@ -67,12 +64,14 @@ public class Artista
         this.Nacionalidad = Nacionalidad;
     }
 
-    public String getAñosCarrera() {
+    public int getAñosCarrera() {
         return añosCarrera;
     }
 
-    public void setAñosCarrera(String añosCarrera) {
+    public void setAñosCarrera(int añosCarrera) {
         this.añosCarrera = añosCarrera;
     }
+
+  
 
 }

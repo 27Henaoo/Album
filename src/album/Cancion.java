@@ -1,90 +1,81 @@
 
 package album;
 import java.util.Scanner;
-public class Cancion extends Artista{
-    
-    private String Nombre;
-    private String Año;
-    private double Clasificacion;
 
-    public Cancion() {
-        super();
+public class Cancion {
+    private int codigoArtista;
+    private String nombre;
+    private String año;
+    private double clasificacion;
+
+    public Cancion() {}
+
+    public Cancion(int codigoArtista, String nombre, String año, double clasificacion) {
+        this.codigoArtista = codigoArtista;
+        this.nombre = nombre;
+        this.año = año;
+        this.clasificacion = clasificacion;
     }
 
-    public Cancion(String CodigoArtista, String Nombre, String Año, double Clasificacion){
-        
-        super.setCodigo(CodigoArtista);
-        this.Nombre = Nombre;
-        this.Año = Año;
-        this.Clasificacion = Clasificacion;
-    }
-    
-    
-    public Cancion IngresarDatos(String CodigoArtista)
-    
+    public Cancion IngresarDatos(int codigoArtista) 
     {
         Scanner sc = new Scanner(System.in);
         
-         this.Codigo = CodigoArtista;
-        
-        System.out.println("Ingrese el Nombre de la Cancion: ");
-        Nombre = sc.next();
-        
-        System.out.println("Ingrese el Año de la Cancion: ");
-        Año = sc.next();
-        
-    do {
-    System.out.println("Ingrese la Clasificacion de la Cancion (1 a 5): ");
-    Clasificacion = sc.nextDouble();
+        this.codigoArtista = codigoArtista;
 
-    if (Clasificacion < 1 || Clasificacion > 5) {
-        System.out.println(" La clasificacion debe ser de 1 a 5. Intente nuevamente.");
-    }
-} while (Clasificacion < 1 || Clasificacion > 5);
-        
-        
-       return new Cancion(CodigoArtista, Nombre, Año, Clasificacion);
+        nombre = Validaciones.LeerString("Ingrese el Nombre de la Cancion: ");
+       
+        año = Validaciones.LeerString("Ingrese el Año de la Cancion: ");
+
+        do {
+            
+            clasificacion = Validaciones.LeerDouble("Ingrese la Clasificacion de la Cancion (1,0 a 5,0): ");
+
+            if (clasificacion < 1 || clasificacion > 5) {
+                System.out.println(" La clasificacion debe ser de 1,0 a 5,0 Intente nuevamente.");
+            }
+        } while (clasificacion < 1 || clasificacion > 5);
+
+        return new Cancion(codigoArtista, nombre, año, clasificacion);
     }
 
-    //BORRAME BERNI ES UNA PUTA
     @Override
     public String toString() {
-        return "Cancion {" + " Codigo Artista: " + "" + getCodigo() + " Nombre = " + Nombre + ", A\u00f1o = " + Año + ", Clasificacion = " + Clasificacion + '}';
+        return "Cancion{" + "codigoArtista=" + codigoArtista + ", nombre=" + nombre + ", a\u00f1o=" + año + ", clasificacion=" + clasificacion + '}';
+    }
+
+    public int getCodigoArtista() {
+        return codigoArtista;
+    }
+
+    public void setCodigoArtista(int codigoArtista) {
+        this.codigoArtista = codigoArtista;
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getAño() {
-        return Año;
+        return año;
     }
 
-    public void setAño(String Año) {
-        this.Año = Año;
+    public void setAño(String año) {
+        this.año = año;
     }
 
     public double getClasificacion() {
-        return Clasificacion;
+        return clasificacion;
     }
 
-    public void setClasificacion(double Clasificacion) {
-        this.Clasificacion = Clasificacion;
+    public void setClasificacion(double clasificacion) {
+        this.clasificacion = clasificacion;
     }
 
-    public String getCodigo() {
-        return Codigo;
-    }
-
-    public void setCodigo(String Codigo) {
-        this.Codigo = Codigo;
-    }
-
-    
-    
     
 }
+

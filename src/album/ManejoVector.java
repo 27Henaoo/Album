@@ -33,16 +33,19 @@ public class ManejoVector {
         return N;
     }
     
-        // Verifica si un código ya existe
-    public boolean existeCodigo(Vector v, String Codigo) {
-        for (int i = 0; i < N; i++) {
+    // Verifica si un código ya existe
+    public boolean existeCodigo(Vector v, int codigo) 
+    {
+        for (int i = 0; i < N; i++) 
+        {
             Artista artista = (Artista) v.getVector()[i];
-            if (artista.getCodigo().equals(Codigo)) 
-            {
+            if (artista.getCodigo() == codigo) 
+            { // comparación numérica
                 return true;
             }
         }
         return false;
     }
+
 
 }

@@ -41,6 +41,4 @@ public class Vector {
         this.N = N;
     }
     
-    //comentario de samuel
-    //comentario de Juanes
 }
