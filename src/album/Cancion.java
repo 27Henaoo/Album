@@ -46,7 +46,7 @@ public class Cancion extends Artista{
        return new Cancion(CodigoArtista, Nombre, Año, Clasificacion);
     }
 
-    //BORRAME
+    //BORRAME BERNI ES UNA PUTA
     @Override
     public String toString() {
         return "Cancion {" + " Codigo Artista: " + "" + getCodigo() + " Nombre = " + Nombre + ", A\u00f1o = " + Año + ", Clasificacion = " + Clasificacion + '}';
