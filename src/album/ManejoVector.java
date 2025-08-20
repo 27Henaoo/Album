@@ -33,7 +33,7 @@ public class ManejoVector {
         return N;
     }
     
-    // Verifica si un código ya existe
+    // Verifica si un código ya existe BANDERA
     public boolean existeCodigo(Vector v, int codigo) 
     {
         for (int i = 0; i < N; i++) 
@@ -46,6 +46,16 @@ public class ManejoVector {
         }
         return false;
     }
+
+public Artista buscarPorCodigo(Vector v, int codigo) {
+    for (int i = 0; i < v.getN(); i++) {
+        Artista artista = (Artista) v.getVector()[i];
+        if (artista != null && artista.getCodigo() == codigo) {
+            return artista; // encontrado
+        }
+    }
+    return null; // no encontrado
+}
 
 
 }
