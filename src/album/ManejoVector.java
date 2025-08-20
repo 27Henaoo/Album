@@ -2,60 +2,44 @@
 package album;
 
 public class ManejoVector {
-    
-        private int N; // Número actual de elementos
-    
-    public ManejoVector() {
-        N = 0;
+
+    // Agregar objeto al vector
+    public void agregar(Vector v, Object obj) {
+        v.agregar(obj);
+    }
+
+    // Obtener objeto en posición i
+    public Object obtener(Vector v, int i) {
+        return v.obtener(i);
+    }
+
+    // Retornar cantidad de elementos
+    public int tamaño(Vector v) {
+        return v.tamaño();
     }
     
-    // Agregar elemento
-    public void agregar(Vector v, Object elemento) {
-        if (N < v.getMax()) {
-            v.getVector()[N] = elemento;
-            N++;
-        } else {
-            System.out.println("Vector lleno. No se puede agregar más elementos.");
+// Verifica si un código de artista ya existe en el vector
+public boolean existeCodigo(Vector v, int codigo) {
+    // Recorremos todos los elementos actualmente en el vector
+    for (int i = 0; i < v.tamaño(); i++) {
+        Artista artista = (Artista) v.obtener(i); // usamos el método público obtener()
+        if (artista.getCodigo() == codigo) {      // comparación numérica
+            return true;                          // el código ya existe
         }
     }
-    
-    // Obtener elemento
-    public Object obtener(Vector v, int indice) {
-        if (indice >= 0 && indice < N) {
-            return v.getVector()[indice];
-        } else {
-            throw new IndexOutOfBoundsException("Índice fuera de rango");
-        }
-    }
-    
-    // Obtener tamaño actual
-    public int tamaño() {
-        return N;
-    }
-    
-    // Verifica si un código ya existe BANDERA
-    public boolean existeCodigo(Vector v, int codigo) 
-    {
-        for (int i = 0; i < N; i++) 
-        {
-            Artista artista = (Artista) v.getVector()[i];
-            if (artista.getCodigo() == codigo) 
-            { // comparación numérica
-                return true;
+    return false; // no se encontró el código
+}
+
+
+    // Buscar Artista por código
+    public Artista buscarPorCodigo(Vector v, int codigo) {
+        for (int i = 0; i < v.tamaño(); i++) {
+            Artista a = (Artista) v.obtener(i);
+            if (a.getCodigo() == codigo) {
+                return a;
             }
         }
-        return false;
+        return null;
     }
-
-public Artista buscarPorCodigo(Vector v, int codigo) {
-    for (int i = 0; i < v.getN(); i++) {
-        Artista artista = (Artista) v.getVector()[i];
-        if (artista != null && artista.getCodigo() == codigo) {
-            return artista; // encontrado
-        }
-    }
-    return null; // no encontrado
 }
 
-
-}

@@ -1,44 +1,46 @@
-
 package album;
 
 public class Vector {
     
-     private Object Vector[];
-    private int max; //Capacidad del vector
-    private int N; //Total de elemetos del vector
-
-    public Vector() {
-    }
+    private Object[] vector;
+    private int max; // Capacidad máxima del vector
+    private int N;   // Cantidad actual de elementos
 
     // Constructor con tamaño máximo
-    public Vector(int tamaño) 
-    {
+    public Vector(int tamaño) {
         this.max = tamaño;
-        Vector = new Object[max];
+        this.vector = new Object[max];
+        this.N = 0;
     }
 
-    public Object[] getVector() {
-        return Vector;
+    // Obtener objeto en posición i
+    public Object obtener(int i) {
+        if (i >= 0 && i < N) {
+            return vector[i];
+        } else {
+            return null; // índice inválido
+        }
     }
 
-    public void setVector(Object[] Vector) {
-        this.Vector = Vector;
+    // Agregar objeto al vector
+    public boolean agregar(Object obj) {
+        if (N < max) {
+            vector[N] = obj;
+            N++;
+            return true;
+        } else {
+            System.out.println("No hay espacio en el vector.");
+            return false;
+        }
     }
 
-    public int getMax() {
-        return max;
-    }
-
-    public void setMax(int max) {
-        this.max = max;
-    }
-
-    public int getN() {
+    // Obtener cantidad de elementos actuales
+    public int tamaño() {
         return N;
     }
 
-    public void setN(int N) {
-        this.N = N;
+    // Obtener capacidad máxima
+    public int getMax() {
+        return max;
     }
-    
 }
