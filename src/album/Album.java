@@ -130,7 +130,22 @@ public class Album {
                             }
                         }
                         break;
+           case 7:
+               
+                        if (vectorArtistas.tamaño() == 0 || vectorCanciones.tamaño() == 0) {
+                            System.out.println("Debe haber artistas y canciones registradas para realizar esta operación.");
+                            break;
+                        }
 
+                        Artista artistaTop = manejadorArtistas.artistaConMasCanciones(vectorArtistas, vectorCanciones);
+
+                        if (artistaTop != null) {
+                            System.out.println("\n=== Artista con más canciones ===");
+                            System.out.println(artistaTop);
+                        } else {
+                            System.out.println("No se encontró ningún artista con canciones registradas.");
+                        }
+                        break;
 
                 case 10:
                     System.out.println("Saliendo del programa...");

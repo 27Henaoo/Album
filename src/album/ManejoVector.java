@@ -84,6 +84,30 @@ public boolean existeCodigo(Vector v, int codigo) {
          }
          return resultado;
     }    
+        public Artista artistaConMasCanciones(Vector vectorArtistas, Vector vectorCanciones) {
+        int maxCanciones = 0;
+        Artista artistaMax = null;
+
+        for (int i = 0; i < vectorArtistas.tamaño(); i++) {
+            Artista artista = (Artista) vectorArtistas.obtener(i);
+            int contador = 0;
+
+            for (int j = 0; j < vectorCanciones.tamaño(); j++) {
+                Cancion cancion = (Cancion) vectorCanciones.obtener(j);
+                if (cancion.getCodigoArtista() == artista.getCodigo()) {
+                    contador++;
+                }
+            }
+
+            if (contador > maxCanciones) {
+                maxCanciones = contador;
+                artistaMax = artista;
+            }
+        }
+
+        return artistaMax;
+    }
+
     
 }
 
