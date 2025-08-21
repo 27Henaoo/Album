@@ -51,7 +51,7 @@ public class Album {
 
                     int nC = Validaciones.LeerInt("Cuantas Canciones Tiene el Artista? ");
                     for (int j = 0; j < nC; j++) {
-                        System.out.println("\n--- Ingreso de Canción " + (j + 1) + " ---");
+                        System.out.println("\n--- Ingreso de Cancion " + (j + 1) + " ---");
                         Cancion cancion = new Cancion().IngresarDatos(objA.getCodigo());
                         manejadorCanciones.agregar(vectorCanciones, cancion);
                         System.out.println("=== CANCION INGRESADA CORRECTAMENTE ===");
@@ -81,6 +81,56 @@ public class Album {
                         }
                     }
                     break;
+           case 5:
+                        if (vectorArtistas == null || vectorArtistas.tamaño() == 0) //Se Verifica que le Vector contenga elemetos 
+                        {
+                            System.out.println("Primero debe ingresar artistas antes de buscar por Nacionalidad.");
+                            break;
+                        }
+
+                        String nacionalidad = Validaciones.LeerString("Ingrese la Nacionalidad a Buscar: "); //Se lee la nacionalidad a buscar
+                        Vector artistasEncontrados = manejadorArtistas.buscarPorNacionalidad(vectorArtistas, nacionalidad); //Se llama el metodo de ManejoVector y se asigna el de Nacionalidad
+
+                        System.out.println("\n=== Artistas Encontrados ===");
+
+                        if (artistasEncontrados.tamaño() == 0)//Si el vector Aux se encuentra Vacio
+                        {
+                            System.out.println("No se encontro ningun artista con esa nacionalidad.");
+                        } 
+                        else { //Si no se encuentra vacio
+                            for (int i = 0; i < artistasEncontrados.tamaño(); i++) //Recorra el vector
+                            {
+                                Artista a = (Artista) artistasEncontrados.obtener(i); //Se obtiene la informacion de la posicion que conincida con Nacionalidad
+                                System.out.println(a + "\n"); //Imprime los Artistas con la nacionalidad que ingreso el usuario
+                            }
+                        }
+                        break;
+           case 6:
+                        if (vectorCanciones == null || vectorCanciones.tamaño() == 0) //Se Verifica que el VectorCanciones no estae vacio ni sea null
+                        {
+                            System.out.println("Primero debe ingresar canciones antes de buscar por la Calificacion 5,0.");
+                            break;
+                        }
+
+                        //Se llama al metodo BuscarCalificacion5 del manejoVector y que busque en el vector aquellas que tengan la calificacion
+                        Vector cancionesEncontradas = manejadorCanciones.BuscarCalificacion5(vectorCanciones); 
+
+                        System.out.println("\n=== Artistas Encontrados ===");
+
+                        if (cancionesEncontradas.tamaño() == 0) //Si no se encuentra ninguna cancion con la Cal = 5
+                        {
+                            System.out.println("No se encontro ningun artista con esa nacionalidad.");
+                        } 
+                        else 
+                        {
+                            for (int i = 0; i < cancionesEncontradas.tamaño(); i++) //Recorra el vector
+                            {
+                                Cancion c = (Cancion) cancionesEncontradas.obtener(i); //Se obtiene la informacion de la posicion que conincida con la calificacion
+                                System.out.println(c + "\n"); //Imprime las canciones con la calificacion = 5 
+                            }
+                        }
+                        break;
+
 
                 case 10:
                     System.out.println("Saliendo del programa...");

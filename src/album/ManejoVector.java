@@ -32,7 +32,8 @@ public boolean existeCodigo(Vector v, int codigo) {
 
 
     // Buscar Artista por código
-    public Artista buscarPorCodigo(Vector v, int codigo) {
+    public Artista buscarPorCodigo(Vector v, int codigo)
+    {
         for (int i = 0; i < v.tamaño(); i++) {
             Artista a = (Artista) v.obtener(i);
             if (a.getCodigo() == codigo) {
@@ -41,5 +42,48 @@ public boolean existeCodigo(Vector v, int codigo) {
         }
         return null;
     }
+    // Método para buscar todos los artistas de una nacionalidad
+    public Vector buscarPorNacionalidad(Vector v, String nacionalidad) {
+        // Crear un vector temporal para guardar los artistas encontrados
+        Vector resultado = new Vector(v.tamaño()); // Capacidad máxima = cantidad actual de artistas
+
+        // Normalizamos la nacionalidad buscada
+        String busqueda = nacionalidad.trim().toLowerCase();
+
+        // Recorremos todos los elementos válidos del vector
+        for (int i = 0; i < v.tamaño(); i++) {
+            Artista a = (Artista) v.obtener(i); // usamos el método público
+            // Comparamos la nacionalidad del artista con la buscada
+            if (a.getNacionalidad().trim().toLowerCase().equals(busqueda)) {
+                // Agregamos el artista al vector de resultados
+                resultado.agregar(a);
+            }
+        }
+
+        return resultado; // Retorna vector con artistas encontrados
+    }
+    
+    public Vector BuscarCalificacion5(Vector v)
+    {
+        
+         // Crear un vector temporal para guardar los artistas encontrados
+        Vector resultado = new Vector(v.tamaño()); // Capacidad máxima = cantidad actual de artistas
+        int busqueda = 5;
+        
+        for (int i = 0; i < v.tamaño(); i++) 
+        {
+            Cancion c = (Cancion) v.obtener(i); // usamos el método público
+            // Comparamos la nacionalidad del artista con la buscada
+            if (c.getClasificacion() == busqueda) 
+            {
+                // Agregamos el artista al vector de resultados
+                resultado.agregar(c);
+            }
+        
+        
+         }
+         return resultado;
+    }    
+    
 }
 
