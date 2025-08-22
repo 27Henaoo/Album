@@ -84,29 +84,36 @@ public boolean existeCodigo(Vector v, int codigo) {
          }
          return resultado;
     }    
+        b 
         public Artista artistaConMasCanciones(Vector vectorArtistas, Vector vectorCanciones) {
-        int maxCanciones = 0;
-        Artista artistaMax = null;
+            int maxCanciones = 0; // Variable para almacenar la cantidad máxima de canciones encontradas.
+            Artista artistaMax = null; // Variable para almacenar el artista con más canciones.
 
-        for (int i = 0; i < vectorArtistas.tamaño(); i++) {
-            Artista artista = (Artista) vectorArtistas.obtener(i);
-            int contador = 0;
+            // Recorre todos los artistas en el vector.
+            for (int i = 0; i < vectorArtistas.tamaño(); i++) {
+                Artista artista = (Artista) vectorArtistas.obtener(i); // Obtiene el artista en la posición i.
+                int contador = 0; // Contador de canciones para el artista actual.
 
-            for (int j = 0; j < vectorCanciones.tamaño(); j++) {
-                Cancion cancion = (Cancion) vectorCanciones.obtener(j);
-                if (cancion.getCodigoArtista() == artista.getCodigo()) {
-                    contador++;
+                // Recorre todas las canciones en el vector.
+                for (int j = 0; j < vectorCanciones.tamaño(); j++) {
+                    Cancion cancion = (Cancion) vectorCanciones.obtener(j); // Obtiene la canción en la posición j.
+
+                    // Verifica si la canción pertenece al artista actual comparando los códigos.
+                    if (cancion.getCodigoArtista() == artista.getCodigo()) {
+                        contador++; // Incrementa el contador si hay coincidencia.
+                    }
+                }
+
+                // Si el artista actual tiene más canciones que el máximo anterior, se actualiza.
+                if (contador > maxCanciones) {
+                    maxCanciones = contador;
+                    artistaMax = artista;
                 }
             }
 
-            if (contador > maxCanciones) {
-                maxCanciones = contador;
-                artistaMax = artista;
-            }
+            // Retorna el artista con más canciones.
+            return artistaMax;
         }
-
-        return artistaMax;
-    }
 
     
 }
